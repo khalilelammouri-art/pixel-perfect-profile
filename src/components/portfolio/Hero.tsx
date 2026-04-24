@@ -43,7 +43,7 @@ export default function Hero() {
           className="mt-6 font-heading text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-7xl"
         >
           Bonjour, je suis{" "}
-          <span className="gradient-text">Alex Martin</span>
+          <span className="gradient-text">Mohamed Khalil El Ammouri</span>
         </motion.h1>
 
         <motion.p
