@@ -14,10 +14,10 @@ import CursorGlow from "@/components/portfolio/CursorGlow";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Alex Martin — Développeur Logiciel" },
-      { name: "description", content: "Portfolio de Alex Martin, développeur logiciel passionné. Applications web modernes, performantes et élégantes." },
-      { property: "og:title", content: "Alex Martin — Développeur Logiciel" },
-      { property: "og:description", content: "Portfolio de Alex Martin, développeur logiciel passionné." },
+      { title: "Mohamed Khalil El Ammouri — Développeur Logiciel" },
+      { name: "description", content: "Portfolio de Mohamed Khalil El Ammouri, développeur logiciel passionné. Applications web modernes, performantes et élégantes." },
+      { property: "og:title", content: "Mohamed Khalil El Ammouri — Développeur Logiciel" },
+      { property: "og:description", content: "Portfolio de Mohamed Khalil El Ammouri, développeur logiciel passionné." },
     ],
   }),
   component: Index,
