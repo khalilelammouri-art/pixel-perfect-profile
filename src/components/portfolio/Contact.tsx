@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, Linkedin, Github, Send } from "lucide-react";
 const contactInfo = [
   { icon: Mail, label: "Email", value: "alex.martin@email.com", href: "mailto:alex.martin@email.com" },
   { icon: Phone, label: "Téléphone", value: "+33 6 12 34 56 78", href: "tel:+33612345678" },
-  { icon: MapPin, label: "Localisation", value: "Paris, France", href: "#" },
+  { icon: MapPin, label: "Localisation", value: "Tanger, Maroc", href: "#" },
   { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/alexmartin", href: "#" },
   { icon: Github, label: "GitHub", value: "github.com/alexmartin", href: "#" },
 ];
