@@ -48,13 +48,13 @@ export default function About() {
           <ScrollReveal direction="right" delay={0.4}>
             <div className="grid grid-cols-2 gap-4">
               <div className="glass-card flex items-center justify-center p-6">
-                <AnimatedCounter target={5} suffix="+" label="Années d'expérience" />
+                <AnimatedCounter target={2} suffix="+" label="Années d'expérience" />
               </div>
               <div className="glass-card flex items-center justify-center p-6">
-                <AnimatedCounter target={30} suffix="+" label="Projets réalisés" />
+                <AnimatedCounter target={10} suffix="+" label="Projets réalisés" />
               </div>
               <div className="glass-card flex items-center justify-center p-6">
-                <AnimatedCounter target={15} suffix="+" label="Technologies" />
+                <AnimatedCounter target={10} suffix="+" label="Technologies" />
               </div>
               <div className="glass-card flex items-center justify-center p-6">
                 <AnimatedCounter target={10} suffix="+" label="Clients satisfaits" />
