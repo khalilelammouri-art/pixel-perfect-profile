@@ -9,38 +9,64 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PremiumRouteImport } from './routes/premium'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PremiumSuccessRouteImport } from './routes/premium.success'
 
+const PremiumRoute = PremiumRouteImport.update({
+  id: '/premium',
+  path: '/premium',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PremiumSuccessRoute = PremiumSuccessRouteImport.update({
+  id: '/success',
+  path: '/success',
+  getParentRoute: () => PremiumRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/premium': typeof PremiumRouteWithChildren
+  '/premium/success': typeof PremiumSuccessRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/premium': typeof PremiumRouteWithChildren
+  '/premium/success': typeof PremiumSuccessRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/premium': typeof PremiumRouteWithChildren
+  '/premium/success': typeof PremiumSuccessRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/premium' | '/premium/success'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/premium' | '/premium/success'
+  id: '__root__' | '/' | '/premium' | '/premium/success'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PremiumRoute: typeof PremiumRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/premium': {
+      id: '/premium'
+      path: '/premium'
+      fullPath: '/premium'
+      preLoaderRoute: typeof PremiumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +74,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/premium/success': {
+      id: '/premium/success'
+      path: '/success'
+      fullPath: '/premium/success'
+      preLoaderRoute: typeof PremiumSuccessRouteImport
+      parentRoute: typeof PremiumRoute
+    }
   }
 }
 
+interface PremiumRouteChildren {
+  PremiumSuccessRoute: typeof PremiumSuccessRoute
+}
+
+const PremiumRouteChildren: PremiumRouteChildren = {
+  PremiumSuccessRoute: PremiumSuccessRoute,
+}
+
+const PremiumRouteWithChildren =
+  PremiumRoute._addFileChildren(PremiumRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PremiumRoute: PremiumRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
