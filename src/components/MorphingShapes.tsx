@@ -7,7 +7,6 @@ interface MorphingShapeProps {
   colors?: string[];
   size?: 'sm' | 'md' | 'lg';
 }
-
 export function MorphingShape({
   duration = 8,
   delay = 0,
