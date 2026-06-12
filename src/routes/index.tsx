@@ -1,23 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Header from "@/components/portfolio/Header";
-import Hero from "@/components/portfolio/Hero";
-import About from "@/components/portfolio/About";
-import Experience from "@/components/portfolio/Experience";
-import Skills from "@/components/portfolio/Skills";
-import Education from "@/components/portfolio/Education";
-import Projects from "@/components/portfolio/Projects";
-import Contact from "@/components/portfolio/Contact";
-import Footer from "@/components/portfolio/Footer";
+import Header from "@/components/restaurant/Header";
+import Hero from "@/components/restaurant/Hero";
+import Concept from "@/components/restaurant/Concept";
+import Menu from "@/components/restaurant/Menu";
+import Ambiance from "@/components/restaurant/Ambiance";
+import Contact from "@/components/restaurant/Contact";
+import Footer from "@/components/restaurant/Footer";
 import AnimatedBackground from "@/components/portfolio/AnimatedBackground";
 import CursorGlow from "@/components/portfolio/CursorGlow";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mohamed Khalil El Ammouri — Développeur Logiciel" },
-      { name: "description", content: "Portfolio de Mohamed Khalil El Ammouri, développeur logiciel passionné. Applications web modernes, performantes et élégantes." },
-      { property: "og:title", content: "Mohamed Khalil El Ammouri — Développeur Logiciel" },
-      { property: "og:description", content: "Portfolio de Mohamed Khalil El Ammouri, développeur logiciel passionné." },
+      { title: "Dar Fusion — Cuisine marocaine revisitée à Tanger" },
+      { name: "description", content: "Dar Fusion : restaurant moderne à Tanger mêlant cuisine marocaine et plats internationaux. Burgers kefta, pizzas tajine, bowls healthy et desserts revisités." },
+      { property: "og:title", content: "Dar Fusion — Cuisine marocaine revisitée" },
+      { property: "og:description", content: "La maison où la tradition marocaine rencontre la modernité. Tanger, Maroc." },
     ],
   }),
   component: Index,
@@ -31,11 +29,9 @@ function Index() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Education />
-        <Projects />
+        <Concept />
+        <Menu />
+        <Ambiance />
         <Contact />
       </main>
       <Footer />
